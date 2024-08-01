@@ -18,7 +18,11 @@ int main() {
             avg+=arr[i].length();
         }
     }
-    printf("%d %.2f", cnt, avg/cnt);
+    // printf("%d %.2f", cnt, avg/cnt);
+    cout << cnt << " ";
+    cout << fixed;
+    cout.precision(2);
+    cout << avg/cnt;
 
     return 0;
 }
