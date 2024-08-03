@@ -11,22 +11,16 @@ int main() {
     for(int i=0;i<arr.length();i++) {
         if(cnt_char==arr[i]) {
             cnt++;
-            if(i==arr.length()-1) {
-                arr_print+=cnt_char;
-                arr_print+=to_string(cnt);
-            }
         }
         else {
             arr_print+=cnt_char;
             arr_print+=to_string(cnt);
             cnt_char=arr[i];
             cnt=1;
-            if(i==arr.length()-1) {
-                arr_print+=cnt_char;
-                arr_print+=to_string(cnt);
-            }
         }
     }
+    arr_print+=cnt_char;
+    arr_print+=to_string(cnt);
     cout << arr_print.length() << "\n" << arr_print;
     return 0;
 }
