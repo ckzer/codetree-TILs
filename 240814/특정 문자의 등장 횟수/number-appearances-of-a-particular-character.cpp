@@ -6,8 +6,10 @@ int main() {
     string cnt;
     int first, second;
     cin>>cnt;
-    if(cnt.find("ee")) first++;
-    else if(cnt.find("eb")) second++;
+    for(int i=0;i<cnt.length()-1;i++) {
+        if(cnt[i]=="e" && cnt[i+1]=="b") first++;
+        else if(cnt[i]=="e" && cnt[i+1]=="e") second++;
+    }
     cout<<first<<" "<<second;
     return 0;
 }
