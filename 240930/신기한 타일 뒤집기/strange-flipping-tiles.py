@@ -7,13 +7,15 @@ for i in range(n):
     x, direction = input().split()
     x=int(x)
     if direction=='L':
-        for j in range(now, now-x, -1):
+        for j in range(now, now-x+1, -1):
             li[j]=1
         now-=x+1
+        li[now]=1
     else:
-        for j in range(now, now+x):
+        for j in range(now, now+x-1):
             li[j]=-1
         now+=x-1
+        li[now]=-1
 for i in range(10000):
     if li[i]==-1:
         black+=1
