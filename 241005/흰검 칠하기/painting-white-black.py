@@ -1,5 +1,5 @@
 n=int(input())
-OFFSET=int(100000)
+OFFSET=100000
 check=[0]*(2*OFFSET+1)
 color=[0]*(2*OFFSET+1)  #검정색은 2, 흰색은 1
 now = OFFSET
@@ -8,14 +8,14 @@ for i in range(n):
     x=int(x)
     if direction=='L':  
         for j in range(now, now-x, -1):
-            if color[j]==1:
+            if color[j]==1 or check[j]==4:
                 continue
             check[j]+=1
             color[j]=1
         now-=x-1
     elif direction=='R':
         for j in range(now, now+x):
-            if color[j]==2:
+            if color[j]==2 or check[j]==4:
                 continue
             check[j]+=1
             color[j]=2
