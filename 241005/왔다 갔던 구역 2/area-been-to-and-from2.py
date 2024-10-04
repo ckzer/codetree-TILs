@@ -6,7 +6,7 @@ for i in range(n):
     x=int(x)
     if direction=='L':
         for j in range(now, now-x, -1):
-            li[j]+=1
+            li[j-1]+=1
         now-=x
     elif direction=='R':
         for j in range(now, now+x):
