@@ -1,7 +1,7 @@
 n=int(input())
-check=[0]*200001
-color=[0]*200001    #검정색은 2, 흰색은 1
-now = 100000
+check=[0]*200002
+color=[0]*200002    #검정색은 2, 흰색은 1
+now = 100001
 for i in range(n):
     x, direction = input().split()
     x=int(x)
