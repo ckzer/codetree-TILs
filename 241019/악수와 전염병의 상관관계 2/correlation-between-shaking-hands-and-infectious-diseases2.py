@@ -1,23 +1,26 @@
-N, K, P, T = map(int, input().split());
-
-arrN = [0]*(N+1)
-arrN[P] = 1
-cntN = [0]*(N+1)
+N, K, P, T = map(int, input().split())
 
 arr = []
-for i in range(T):
-    arr.append(list(map(int, input().split())))
-arr.sort(key = lambda x: [x[0]])
+for _ in range(T):
+    t, x, y = map(int, input().split())
+    arr.append((t, x, y))
 
-for i in range(T):
-    t, x, y = arr[i][0], arr[i][1], arr[i][2]
-    
-    if arrN[x] == 1 and cntN[x] < K:
-        arrN[y] = 1 
-        cntN[x] += 1  
-    
-    if arrN[y] == 1 and cntN[y] < K:
-        arrN[x] = 1
-        cntN[y] += 1  
+infected = [False]*(N+1)
+infected[P] = True
+shake_num = [0]*(N + 1)
 
-print(''.join(map(str, arrN[1:])))
+arr.sort(key=lambda x: x[0])
+
+for t, x, y in arr:
+    if infected[x]:
+        shake_num[x]+=1
+    if infected[y]:
+        shake_num[y]+=1
+
+    if shake_num[x]<=K and infected[x]:
+        infected[y]=True
+    if shake_num[y]<=K and infected[y]:
+        infected[x]=True
+
+for i in range(1, N+1):
+    print(1 if infected[i] else 0, end="")
