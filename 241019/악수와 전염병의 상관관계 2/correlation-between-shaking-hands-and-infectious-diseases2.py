@@ -10,16 +10,14 @@ for i in range(T):
 arr.sort(key = lambda x: [x[0]])
 
 for i in range(T):
-    x, y = arr[i][1], arr[i][2]
-    if arrN[x] == 1:
-        if cntN[x] <= K:
-            arrN[y] = 1
-            cntN[x] += 1
-        
-    else:
-        if arrN[y] == 1:
-            if cntN[y] <= K:
-                arrN[x] = 1
-                cntN[y] += 1
+    t, x, y = arr[i][0], arr[i][1], arr[i][2]
+    
+    if arrN[x] == 1 and cntN[x] < K:
+        arrN[y] = 1 
+        cntN[x] += 1  
+    
+    if arrN[y] == 1 and cntN[y] < K:
+        arrN[x] = 1
+        cntN[y] += 1  
 
 print(''.join(map(str, arrN[1:])))
