@@ -1,9 +1,10 @@
+OFFSET=100
 n=int(input())
 rectangle=[[0]*201 for _ in range(201)]
-li=[]
-for i in range(n):
-    li.append(list(map(int, input().split())))
+li=[ tuple(map(int, input().split())) for _ in range(n) ]
 for x, y in li:
+    x+=OFFSET
+    y+=OFFSET
     for i in range(8):
         for j in range(8):
             rectangle[x+i][y+j]=1
